@@ -183,7 +183,7 @@
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\Dinesh\Desktop\BMS Project\userLOGINIMAGE.png"/>
+                  <Image iconType="2" name="C:\Users\Dinesh\Documents\NetBeansProjects\BMSG7\src\InterFace\userLOGINIMAGE.png"/>
                 </Property>
               </Properties>
             </Component>
@@ -203,14 +203,14 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dinesh\Desktop\BMS Project\small lock.png"/>
+              <Image iconType="2" name="C:\Users\Dinesh\Documents\NetBeansProjects\BMSG7\src\InterFace\small lock.png"/>
             </Property>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dinesh\Desktop\BMS Project\gggggggggggggggg.png"/>
+              <Image iconType="2" name="C:\Users\Dinesh\Documents\NetBeansProjects\BMSG7\src\InterFace\gggggggggggggggg.png"/>
             </Property>
           </Properties>
         </Component>
@@ -254,7 +254,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="14" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Login ID Number : "/>
+            <Property name="text" type="java.lang.String" value="User ID Name    :"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">

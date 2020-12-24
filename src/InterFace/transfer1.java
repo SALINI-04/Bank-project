@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Dinesh
+ * @author Salini
  */
 public class transfer1 extends javax.swing.JInternalFrame {
 

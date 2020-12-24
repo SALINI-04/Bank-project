@@ -6,10 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import java.util.regex.*;
+import java.util.regex.*;    // regex pakage import for chack validation
 
 public final class Customer1 extends javax.swing.JInternalFrame {
 
@@ -402,7 +400,7 @@ public final class Customer1 extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try {
-            // TODO add your handling code here:
+            // customer details add 
             String cutomer_id = jLabel9.getText();
             String name = txtfname.getText();
             String NIC = txtlnic.getText();
@@ -438,8 +436,8 @@ public final class Customer1 extends javax.swing.JInternalFrame {
 
             autoID();
 
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Customer1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -447,11 +445,12 @@ public final class Customer1 extends javax.swing.JInternalFrame {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       //close window
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtfnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfnameKeyPressed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_txtfnameKeyPressed
 
     private void txtfnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtfnameKeyReleased
@@ -470,7 +469,7 @@ public final class Customer1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtfnameKeyReleased
 
     private void txtlastnameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtlastnameKeyPressed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_txtlastnameKeyPressed
 
     private void txtlastnameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtlastnameKeyReleased
@@ -488,7 +487,7 @@ public final class Customer1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtlastnameKeyReleased
 
     private void txtlnicKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtlnicKeyReleased
-        // TODO add your handling code here:
+        // NIC number cheack 
                 String PATTERN = "^[0-9]{0,12}[V]{0,1}$";
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match= patt.matcher(txtlnic.getText());
@@ -500,7 +499,7 @@ public final class Customer1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtlnicKeyReleased
 
     private void txtdobKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtdobKeyReleased
-        // TODO add your handling code here:
+        // date of birth cheack 
         String PATTERN = "^[0-9]{0,4}[/][0-9]{0,2}[/][0-9]{0,2}$";
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match= patt.matcher(txtdob.getText());
@@ -512,7 +511,7 @@ public final class Customer1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtdobKeyReleased
 
     private void txtgenderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtgenderKeyReleased
-        // TODO add your handling code here:
+        // gender cheack
         String PATTERN = "^[M,F]{0,1}$";
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match= patt.matcher(txtgender.getText());
@@ -537,8 +536,8 @@ public final class Customer1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtmobileKeyReleased
 
     private void jTextnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextnKeyReleased
-        // TODO add your handling code here:
-                String PATTERN = "^[a-zA-Z]{0,20}$";
+        // TODO add your handling code
+        String PATTERN = "^[a-zA-Z]{0,20}$";
         Pattern patt = Pattern.compile(PATTERN);
         Matcher match= patt.matcher(jTextn.getText());
         if(!match.matches()){
@@ -563,11 +562,11 @@ public final class Customer1 extends javax.swing.JInternalFrame {
             rs.next();
             if (rs.getString("Max(cust_id)") == null) {
 
-                jLabel9.setText("CS001");
+                jLabel9.setText("CN001");
             } else {
                 long id = Long.parseLong(rs.getString("Max(cust_id)").substring(2, rs.getString("Max(cust_id)").length()));
                 id++;
-                jLabel9.setText("CS" + String.format("%03d", id));
+                jLabel9.setText("CN" + String.format("%03d", id));
             }
         } catch (NumberFormatException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);

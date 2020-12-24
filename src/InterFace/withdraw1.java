@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Dinesh
+ * @author Malmie
  */
 public class withdraw1 extends javax.swing.JInternalFrame {
 
@@ -308,7 +308,7 @@ public class withdraw1 extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         try {
-            // TODO add your handling code here:
+            // find account number 
             String accno = jTextField1.getText();
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
@@ -335,9 +335,7 @@ public class withdraw1 extends javax.swing.JInternalFrame {
 
             }
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(withdraw1.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(withdraw1.class.getName()).log(Level.SEVERE, null, ex);
         }
 
@@ -349,13 +347,12 @@ public class withdraw1 extends javax.swing.JInternalFrame {
         int balance  = Integer.parseInt(jLabel11.getText());
         if(balance >= 1000){
         try {
-            // TODO add your handling code here:
+            // withdraw
 
             con.setAutoCommit(false);
             String accno = jTextField1.getText();
             String cust_id = jLabel6.getText();
             String date = jLabel9.getText();
-         //   String balance = jLabel11.getText();
             String amount = jTextField2.getText();
 
             Class.forName("com.mysql.jdbc.Driver");

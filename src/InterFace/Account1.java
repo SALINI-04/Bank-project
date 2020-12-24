@@ -1,24 +1,23 @@
 package InterFace;
 
+//import sql conector package and swing jframe pacakge 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public final class Account1 extends javax.swing.JInternalFrame {
 
     private PreparedStatement insert;
 
+    //constracutor #id number is call
     public Account1() {
         initComponents();
         autoID();
-        branch();
-     
+
     }
 
     @SuppressWarnings("unchecked")
@@ -203,56 +202,59 @@ public final class Account1 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        // close window
         setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        int balance  = Integer.parseInt(txtbal.getText());
-        if(balance >= 1000 && balance >0){
-        
-        try {
-            // TODO add your handling code here:
-            String account_no = jLabel9.getText();
-            String customerid = txtcust_id.getText();
-            String custname = txtlname.getText();
-            String acountype = txtaccount.getSelectedItem().toString();
-            String bal = txtbal.getText();
 
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
+        // create account
+        int balance = Integer.parseInt(txtbal.getText());
+        if (balance >= 1000 && balance > 0) {                  // validation part for cheack balance
 
-            insert = con.prepareStatement("insert into account(acc_id,cust_id,acc_type,balance) values(?,?,?,?)");
+            try {
 
-            insert.setString(1, account_no);
-            insert.setString(2, customerid);
-            insert.setString(3, acountype);
-            insert.setString(4, bal);
-            insert.executeUpdate();
-            insert.executeUpdate();
-            JOptionPane.showMessageDialog(this, "Account created!");
+                String account_no = jLabel9.getText();
+                String customerid = txtcust_id.getText();
+                String acountype = txtaccount.getSelectedItem().toString();
+                String bal = txtbal.getText();
 
-            txtcust_id.setText("");
-            txtlname.setText("");
-            txtbal.setText("");
-            txtaccount.setSelectedIndex(-1);
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
 
-            autoID();
+                insert = con.prepareStatement("insert into account(acc_id,cust_id,acc_type,balance) values(?,?,?,?)");
 
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Account1.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        }else{
-        
-            JOptionPane.showMessageDialog(null,"must be deposit more than 1000");
+                insert.setString(1, account_no);
+                insert.setString(2, customerid);
+                insert.setString(3, acountype);
+                insert.setString(4, bal);
+                insert.executeUpdate();
+                insert.executeUpdate();
+                JOptionPane.showMessageDialog(this, "Account created!");
+
+                txtcust_id.setText("");
+                txtlname.setText("");
+                txtbal.setText("");
+                txtaccount.setSelectedIndex(-1);
+
+                autoID();
+
+            } catch (ClassNotFoundException | SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(null, "must be deposit more than 1000");
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        //  Find customer ID 
         try {
-            // TODO add your handling code here:
+
             String cust_id = txtcust_id.getText();
             Class.forName("com.mysql.jdbc.Driver");
             con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
@@ -269,38 +271,15 @@ public final class Account1 extends javax.swing.JInternalFrame {
                 txtlname.setText(firstname.trim());
             }
 
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Account1.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Account1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtcust_idKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcust_idKeyPressed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txtcust_idKeyPressed
-
-    // combo box wala display hadeema 
-    public void branch() {
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
-            insert = con.prepareStatement("select * from branch");
-            ResultSet rs = insert.executeQuery();
- //           jComboBox1.removeAllItems();
-
-            while (rs.next()) {
-                //            jComboBox1.addItem(rs.getString(2));
-            }
-
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Account1.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(Account1.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
 
     Connection con;
     PreparedStatement s;
@@ -324,8 +303,8 @@ public final class Account1 extends javax.swing.JInternalFrame {
                 jLabel9.setText("A" + String.format("%03d", id));
             }
 
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Account1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException | SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
     }
 
@@ -346,6 +325,5 @@ public final class Account1 extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtcust_id;
     private javax.swing.JTextField txtlname;
     // End of variables declaration//GEN-END:variables
-
 
 }

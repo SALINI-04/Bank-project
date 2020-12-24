@@ -63,7 +63,7 @@ public class Login extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(51, 0, 51));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dinesh\\Desktop\\BMS Project\\userLOGINIMAGE.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dinesh\\Documents\\NetBeansProjects\\BMSG7\\src\\InterFace\\userLOGINIMAGE.png")); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Snap ITC", 0, 48)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,9 +92,9 @@ public class Login extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dinesh\\Desktop\\BMS Project\\small lock.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dinesh\\Documents\\NetBeansProjects\\BMSG7\\src\\InterFace\\small lock.png")); // NOI18N
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dinesh\\Desktop\\BMS Project\\gggggggggggggggg.png")); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dinesh\\Documents\\NetBeansProjects\\BMSG7\\src\\InterFace\\gggggggggggggggg.png")); // NOI18N
 
         loginPwdBox.setToolTipText("Enter your password");
 
@@ -114,7 +114,7 @@ public class Login extends javax.swing.JFrame {
         jLabel8.setText("Login");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setText("Login ID Number : ");
+        jLabel9.setText("User ID Name    :");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setText("Login Password : ");

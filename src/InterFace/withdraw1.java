@@ -126,6 +126,11 @@ public class withdraw1 extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jButton1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jButton1KeyReleased(evt);
+            }
+        });
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setText("Withdraw");
@@ -340,6 +345,9 @@ public class withdraw1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+        int balance  = Integer.parseInt(jLabel11.getText());
+        if(balance >= 1000){
         try {
             // TODO add your handling code here:
 
@@ -347,7 +355,7 @@ public class withdraw1 extends javax.swing.JInternalFrame {
             String accno = jTextField1.getText();
             String cust_id = jLabel6.getText();
             String date = jLabel9.getText();
-            String balance = jLabel11.getText();
+         //   String balance = jLabel11.getText();
             String amount = jTextField2.getText();
 
             Class.forName("com.mysql.jdbc.Driver");
@@ -356,7 +364,7 @@ public class withdraw1 extends javax.swing.JInternalFrame {
             insert.setString(1, accno);
             insert.setString(2, cust_id);
             insert.setString(3, date);
-            insert.setString(4, balance);
+            insert.setInt(4, balance);
             insert.setString(5, amount);
             insert.executeUpdate();
 
@@ -377,7 +385,9 @@ public class withdraw1 extends javax.swing.JInternalFrame {
             }
             Logger.getLogger(withdraw1.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        }else{
+            JOptionPane.showMessageDialog(null,"can't withdrawl.. your balance must be more than 1000");
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -385,6 +395,10 @@ public class withdraw1 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jButton1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1KeyReleased
 
     public void date() {
         //       DateTimeFormatter dtd = DateTimeFormatter.

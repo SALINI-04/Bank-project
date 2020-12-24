@@ -85,7 +85,7 @@ public final class Account1 extends javax.swing.JInternalFrame {
         });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(204, 0, 204));
+        jLabel9.setForeground(new java.awt.Color(0, 51, 51));
         jLabel9.setText("jLabel9");
 
         txtaccount.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -209,6 +209,9 @@ public final class Account1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int balance  = Integer.parseInt(txtbal.getText());
+        if(balance >= 1000 && balance >0){
+        
         try {
             // TODO add your handling code here:
             String account_no = jLabel9.getText();
@@ -239,6 +242,10 @@ public final class Account1 extends javax.swing.JInternalFrame {
 
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Account1.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }else{
+        
+            JOptionPane.showMessageDialog(null,"must be deposit more than 1000");
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed

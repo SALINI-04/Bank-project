@@ -189,25 +189,25 @@ public class Deposit1 extends javax.swing.JInternalFrame {
         jLabel2.setText("Cusromer No");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("jLabel6");
+        jLabel6.setText("Customer no");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Name");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("jLabel7");
+        jLabel7.setText("Name");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("NIC");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("jLabel8");
+        jLabel8.setText("NIC");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Mobile");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setText("jLabel9");
+        jLabel9.setText("Mobile");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -345,50 +345,50 @@ public class Deposit1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        try {
-            // TODO add your handling code here:
-
-            con.setAutoCommit(false);
-            String accno = jTextField1.getText();
-            String cust_id = jLabel6.getText();
-            String firstname = jLabel7.getText(); // for testing purpose it used
-            String lastname = jLabel8.getText();  // for testing purpose it used
-            String date = jLabel9.getText();
-            String balance = jLabel11.getText();
-            String amount = jTextField2.getText();
-
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
-            insert = con.prepareStatement("insert into deposit(acc_id,cust_id,date,balance,deposit) values(?,?,?,?,?)");
-            insert.setString(1, accno);
-            insert.setString(2, cust_id);
-            insert.setString(3, date);
-            insert.setString(4, balance);
-            insert.setString(5, amount);
-            insert.executeUpdate();
-
-            update = con.prepareStatement("update account set balance = balance + ? where acc_id=?");
-            update.setString(1, amount);
-            update.setString(2, accno);
-            update.executeUpdate();
-            JOptionPane.showMessageDialog(this, "deposited!");
-            con.commit();
-            
-            
-            
-            
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Deposit1.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        int amount = Integer.parseInt(jTextField2.getText());
+        if (amount > 0) {
             try {
-                con.rollback();
-            } catch (SQLException ex1) {
-                Logger.getLogger(Deposit1.class.getName()).log(Level.SEVERE, null, ex1);
+                // TODO add your handling code here:
+
+                con.setAutoCommit(false);
+                String accno = jTextField1.getText();
+                String cust_id = jLabel6.getText();
+                String date = jLabel9.getText();
+                String balance = jLabel11.getText();
+     
+
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
+                insert = con.prepareStatement("insert into deposit(acc_id,cust_id,date,balance,deposit) values(?,?,?,?,?)");
+                insert.setString(1, accno);
+                insert.setString(2, cust_id);
+                insert.setString(3, date);
+                insert.setString(4, balance);
+                insert.setInt(5, amount);
+                insert.executeUpdate();
+
+                update = con.prepareStatement("update account set balance = balance + ? where acc_id=?");
+                update.setInt(1, amount);
+                update.setString(2, accno);
+                update.executeUpdate();
+                JOptionPane.showMessageDialog(this, "deposited!");
+                con.commit();
+
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Deposit1.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (SQLException ex) {
+                try {
+                    con.rollback();
+                } catch (SQLException ex1) {
+                    Logger.getLogger(Deposit1.class.getName()).log(Level.SEVERE, null, ex1);
+                }
+                Logger.getLogger(Deposit1.class.getName()).log(Level.SEVERE, null, ex);
             }
-            Logger.getLogger(Deposit1.class.getName()).log(Level.SEVERE, null, ex);
+
+        } else {
+
+            JOptionPane.showMessageDialog(null, "warning,,,,enter deposit intiger value!!");
         }
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

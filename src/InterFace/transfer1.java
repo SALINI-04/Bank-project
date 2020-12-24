@@ -249,46 +249,51 @@ public class transfer1 extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        String facc = jTextField1.getText();
-        String balance = jTextField2.getText();
-        String toacc = jTextField3.getText();
-        String amount = jTextField4.getText();
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
 
-            con.setAutoCommit(false);
-
-            //sender acount
-            st1 = con.prepareStatement("update account set balance = balance-? where acc_id=?");
-            st1.setString(1, amount);
-            st1.setString(2, facc);
-            st1.executeUpdate();
-
-            //receiver acount
-            st2 = con.prepareStatement("update account set balance = balance+? where acc_id=?");
-            st2.setString(1, amount);
-            st2.setString(2, toacc);
-            st2.executeUpdate();
-
-            st3 = con.prepareStatement("insert into transfer(f_account,to_account,amount) values(?,?,?)");
-            st3.setString(1, facc);
-            st3.setString(2, toacc);
-            st3.setString(3, amount);
-            st3.executeUpdate();
-
-            JOptionPane.showMessageDialog(this, "Amount transfered !!!");
-            con.commit();
-
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(transfer1.class.getName()).log(Level.SEVERE, null, ex);
+        int balance = Integer.parseInt(jTextField2.getText());
+        if (balance > 1000) {
+            String facc = jTextField1.getText();
+           // int balance = jTextField2.getText();
+            String toacc = jTextField3.getText();
+            String amount = jTextField4.getText();
             try {
-                con.rollback();
-            } catch (SQLException ex1) {
-                Logger.getLogger(transfer1.class.getName()).log(Level.SEVERE, null, ex1);
-            }
-        }
+                Class.forName("com.mysql.jdbc.Driver");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
 
+                con.setAutoCommit(false);
+
+                //sender acount
+                st1 = con.prepareStatement("update account set balance = balance-? where acc_id=?");
+                st1.setString(1, amount);
+                st1.setString(2, facc);
+                st1.executeUpdate();
+
+                //receiver acount
+                st2 = con.prepareStatement("update account set balance = balance+? where acc_id=?");
+                st2.setString(1, amount);
+                st2.setString(2, toacc);
+                st2.executeUpdate();
+
+                st3 = con.prepareStatement("insert into transfer(f_account,to_account,amount) values(?,?,?)");
+                st3.setString(1, facc);
+                st3.setString(2, toacc);
+                st3.setString(3, amount);
+                st3.executeUpdate();
+
+                JOptionPane.showMessageDialog(this, "Amount transfered !!!");
+                con.commit();
+
+            } catch (ClassNotFoundException | SQLException ex) {
+                Logger.getLogger(transfer1.class.getName()).log(Level.SEVERE, null, ex);
+                try {
+                    con.rollback();
+                } catch (SQLException ex1) {
+                    Logger.getLogger(transfer1.class.getName()).log(Level.SEVERE, null, ex1);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "can't transfer .. must be balance more than 1000");
+        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 

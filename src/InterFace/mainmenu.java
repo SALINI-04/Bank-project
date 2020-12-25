@@ -76,7 +76,7 @@ public class mainmenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
-        jMenu1.setText("Deposit");
+        jMenu1.setText("Deposit  & check Balance");
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem2.setText("Deposit");

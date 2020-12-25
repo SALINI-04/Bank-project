@@ -46,7 +46,7 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Deposit"/>
+            <Property name="text" type="java.lang.String" value="Deposit  &amp; check Balance"/>
           </Properties>
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">

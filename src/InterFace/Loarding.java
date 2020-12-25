@@ -81,14 +81,14 @@ public class Loarding extends javax.swing.JFrame {
         jLabel7.setText("Reading brushes...");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dinesh\\Desktop\\BMS Project\\sjkjk.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InterFace/sjkjk.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 230, 170));
 
         txtpro.setBackground(new java.awt.Color(255, 255, 255));
         txtpro.setText("jLabel9");
         jPanel1.add(txtpro, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\Dinesh\\Desktop\\BMS Project\\360_F_262649324_V35KcJpQOzCmuNamCVui8DcIeaeXZitv.jpg")); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/InterFace/360_F_262649324_V35KcJpQOzCmuNamCVui8DcIeaeXZitv.jpg"))); // NOI18N
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -70, 790, 500));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 630, 360));

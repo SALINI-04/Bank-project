@@ -562,11 +562,11 @@ public final class Customer1 extends javax.swing.JInternalFrame {
             rs.next();
             if (rs.getString("Max(cust_id)") == null) {
 
-                jLabel9.setText("CN001");
+                jLabel9.setText("CS001");
             } else {
                 long id = Long.parseLong(rs.getString("Max(cust_id)").substring(2, rs.getString("Max(cust_id)").length()));
                 id++;
-                jLabel9.setText("CN" + String.format("%03d", id));
+                jLabel9.setText("CS" + String.format("%03d", id));
             }
         } catch (NumberFormatException | SQLException e) {
             JOptionPane.showMessageDialog(null, e);

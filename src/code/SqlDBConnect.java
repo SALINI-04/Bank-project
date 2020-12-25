@@ -3,6 +3,7 @@ package code;
 
 import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class SqlDBConnect {
@@ -12,7 +13,7 @@ public class SqlDBConnect {
             try {
             Class.forName("com.mysql.jdbc.Driver");
             conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank","root","");
-        } catch (Exception e) {
+        } catch (ClassNotFoundException | SQLException e) {
                 JOptionPane.showMessageDialog(null, e);
         }
         return conn;

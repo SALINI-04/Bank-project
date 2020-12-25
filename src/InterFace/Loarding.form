@@ -175,7 +175,7 @@
         <Component class="javax.swing.JLabel" name="jLabel8">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dinesh\Desktop\BMS Project\sjkjk.png"/>
+              <Image iconType="3" name="/InterFace/sjkjk.png"/>
             </Property>
           </Properties>
           <Constraints>
@@ -200,7 +200,7 @@
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="C:\Users\Dinesh\Desktop\BMS Project\360_F_262649324_V35KcJpQOzCmuNamCVui8DcIeaeXZitv.jpg"/>
+              <Image iconType="3" name="/InterFace/360_F_262649324_V35KcJpQOzCmuNamCVui8DcIeaeXZitv.jpg"/>
             </Property>
           </Properties>
           <Constraints>

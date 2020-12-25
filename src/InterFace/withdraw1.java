@@ -345,7 +345,7 @@ public class withdraw1 extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
         int balance  = Integer.parseInt(jLabel11.getText());
-        if(balance >= 1000){
+        if(balance > 1000 && balance >0){
         try {
             // withdraw
 

@@ -253,7 +253,6 @@ public class transfer1 extends javax.swing.JInternalFrame {
         int balance = Integer.parseInt(jTextField2.getText());
         if (balance > 1000) {
             String facc = jTextField1.getText();
-           // int balance = jTextField2.getText();
             String toacc = jTextField3.getText();
             String amount = jTextField4.getText();
             try {

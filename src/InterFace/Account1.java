@@ -221,7 +221,7 @@ public final class Account1 extends javax.swing.JInternalFrame {
                 String bal = txtbal.getText();
 
                 Class.forName("com.mysql.jdbc.Driver");
-                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dbbank?", "root", "");
+                con = DriverManager.getConnection("jdbc:mysql://localhost:3306/dpbank?", "root", "");
 
                 insert = con.prepareStatement("insert into account(acc_id,cust_id,acc_type,balance) values(?,?,?,?)");
 
